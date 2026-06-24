@@ -72,20 +72,86 @@ void pattern12(int n){
             cout<<" ";
         }
         //num
-        for(int j=1;j<=i;j++){
+        for(int j=i;j>=1;j--){
             cout<<j;
         }
         cout<<endl;
     }
     
 }
+void pattern13(int n) {
+        int a=1;
+        for(int i=1;i<=n;i++){
+            for( int j=1;j<=i;j++){
+                cout<<a<<" ";
+                a++;
+            }
+            cout<<endl;
+        }
+    }
+void pattern14(int n){
+    for(int i=1;i<=n;i++){
+        char ch = 65;
+            for( int j=1;j<=i;j++){
+
+                cout<<ch;
+                ch++;
+            }
+            cout<<endl;
+        }
+    }
+void pattern15(int n){
+    for(int i=1;i<=n;i++){
+        char ch =65;
+        for(int j=n;j>=i;j--){
+            cout<<ch;
+            ch ++;
+        }
+        cout<<endl;
+    }
+}
+void pattern16(int n){
+    char ch =65;
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=i;j++){
+            cout<<ch;
+        }
+        cout<<endl;
+        ch ++;
+    }
+}
+void pattern17(int n){
+    for(int i=1;i<=n;i++){
+        //space
+        for(int j=1;j<=n-i;j++){
+            cout<<" ";
+            
+        }
+        //alp
+        char ch = 'A';
+        int breakpoint=(2*i-1)/2;
+        for(int j=1;j<=2*i-1;j++){
+            cout<<ch;
+            if(j<=breakpoint) ch ++;
+            else ch --;
+
+        }
+        cout<<endl;
+        
+        
+    }
+}
+void pattern18(int n){
+    
+}
+
 int main(){
     int t;
     cin>>t;
     int n1;
     for(int i=0;i<t;i++){
         cin>>n1;
-        pattern12(n1);
+        pattern18(n1);
     }
 
     return 0;
