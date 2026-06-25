@@ -144,14 +144,33 @@ void pattern17(int n){
 void pattern18(int n){
     
 }
-
+void pattern19(int n){
+    int spaces =0;
+    for(int i=1;i<=n;i++){
+        
+        //star
+        for(int j = 1; j<=n-i+1;j++){
+            cout<<"*";
+        }
+        //space
+        for(int j =0 ;j<=spaces;j++){
+            cout<<" ";
+        }
+        //star
+        for(int j=1;j<=n-i+1;j++){
+            cout<<"*";
+        }
+        cout<<endl;
+        spaces=spaces+2;
+    }
+}
 int main(){
     int t;
     cin>>t;
     int n1;
     for(int i=0;i<t;i++){
         cin>>n1;
-        pattern18(n1);
+        pattern19(n1);
     }
 
     return 0;
