@@ -239,7 +239,7 @@ int main(){
     int n1;
     for(int i=0;i<t;i++){
         cin>>n1;
-        pattern22(n1);
+        pattern19(n1);
     }
 
     return 0;

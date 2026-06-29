@@ -1,10 +1,9 @@
-int start=1;
-    for(int i=1;i<=n;i++){
-        if(i%2==0)start=0;
-        else start=1;
-        for(int j=1;j<=i;i++){
-            cout<<start;
-            start=1-start;
-        }
-        cout<<endl;
+int count_digit(int n){
+    int count=0;
+    while(n>0){
+        int lastDigit= n%10;
+        n=n/10;
+        count++;
     }
+    return count;
+}
