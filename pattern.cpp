@@ -231,15 +231,27 @@ void pattern22(int n){
         }
         cout<<endl;
     }
-
 }
+void pattern23(int n){
+    int st =1, ed =1;
+    for(int i=0;i<n;i++){
+        st =st +i;
+        ed=ed+(i+1);
+        for(int j=st;j<ed;j++){
+            cout<<j;
+        }
+        cout<<endl;
+    }
+}
+
+
 int main(){
     int t;
     cin>>t;
     int n1;
     for(int i=0;i<t;i++){
         cin>>n1;
-        pattern19(n1);
+        pattern23(n1);
     }
 
     return 0;
