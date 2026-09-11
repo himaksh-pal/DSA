@@ -1,7 +1,21 @@
 #include<iostream>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
-void rotateArray(vector<int>& nums, int k) {
+void Reverse(vector<int>& nums,int start, int end){ 
+    while(start<end){
+        int temp=nums[start];
+        nums[start]=nums[end];
+        nums[end]=temp;
+        start++;
+        end--;
+    }
+}
+// void rotateArray1(int arr[],int k,int n){     // optimal
+//     Reverse(arr,0,k-1);
+//     Reverse(arr,k,n-1);
+//     Reverse(arr,0,n-1);
+// }
+void rotateArray(vector<int>& nums, int k) { // brute
     int n=nums.size();
     k=k%n;
     int temp[k];
@@ -25,7 +39,16 @@ void rotateArray(vector<int>& nums, int k) {
         cout<<val<<" ";
     }
     }
-int main(){
+void rotateRight(vector<int>& nums, int k) {
+
+        int n = nums.size();
+        k=k%n;
+        Reverse(nums,0,n-k-1);
+        Reverse(nums,n-k,n-1);
+        Reverse(nums,0,n-1);
+        
+    }
+    int main(){
     cout << "Enter the size of the array : ";
         int n;
         int k;
@@ -40,5 +63,8 @@ int main(){
         {
             cin >> nums[i];
         }
-        rotateArray(nums,k);
+        rotateRight(nums,k);
+        for(int val : nums){
+            cout<<val<<" ";
+        }
 }
