@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int missingNumber(vector<int>& nums) {
+int missingNumberM(vector<int>& nums) { // my approach
         int n = nums.size();
         int i=0;
         int j=0;
@@ -26,7 +26,7 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>nums[i];
     }
-    int result = missingNumber(nums);
+    int result = missingNumberM(nums);
     cout<<" RESULT : "<<result;
     return 0;
 }
