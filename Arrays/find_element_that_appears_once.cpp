@@ -21,6 +21,11 @@ int singleNumberMB(vector<int>& nums){  // brute , MY
         return target;
 }
 int singleNumber(vector<int>& nums){ // optimal
+    int XOR=0;
+    for(int i=0;i<nums.size();i++){
+        XOR^=nums[i];
+    }
+    return XOR;
 
 }
 int main(){
