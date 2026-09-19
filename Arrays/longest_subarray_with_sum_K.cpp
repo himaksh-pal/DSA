@@ -1,5 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
+int longestSubarrayB(vector<int>& nums,long long k){ // brute
+    int n=nums.size();
+    int len =0;
+    for(int i=0;i<n;i++){
+        int sum=0;
+        for(int j=i;j<n;j++){
+            sum+=nums[j];
+            if(sum==k){
+                len=max(len,j-i+1);
+
+            }
+
+        }
+    }
+    return len;
+}
 int longestSubarray(vector<int> &nums, long long k){ // better
     map<long long,int>preSumMap;
     long long sum=0;
@@ -44,18 +60,11 @@ int longestSubarrayO(vector<int>& nums,long long k){ // optimal
     return maxLen;
 }
 int main(){
-    cout<<"enter size of the vector :";
-    int n ;
-    cin>>n;
+    int n =10;
     vector<int> nums(n);
-    cout<<"Enter the elements of the vector :";
-    for(int i=0;i<n;i++){
-        cin>>nums[i];
-    }
-    long long k;
-    cout<<"enter the value of k :";
-    cin>>k;
-    int result = longestSubarrayO(nums,k);
+    nums = {1,2,3,1,1,1,1,4,2,3};
+    long long k=3;
+    int result = longestSubarray(nums,k);
     cout<<" RESULT : "<<result;
     return 0;
 }

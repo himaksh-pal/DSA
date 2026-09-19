@@ -36,4 +36,4 @@ int main(){
     for(auto val : result){
         cout<<val<<" ";
     }
-}
+}    
