@@ -31,7 +31,7 @@ vector<int> majorityElementM(vector<int>& arr) { // better MY
         }
         return ans;
     }
-vector<int> majorityElementMO(vector<int> & arr){ //optimal MY
+vector<int> majorityElementMO(vector<int> & arr){ //  optimal MY
     int n = arr.size();
 vector<int> ans;
 sort(arr.begin(), arr.end());
