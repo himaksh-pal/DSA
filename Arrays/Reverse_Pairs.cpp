@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 int reversePairsMB(vector<int>& arr) {  // brute MY
-                long long n = arr.size();
-        long long cnt=0;
+        int n = arr.size();
+        int cnt=0;
         for(long long i =0;i<n;i++){
-            for(long long j = i ; j<n;j++){
+            for(int j = i ; j<n;j++){
                 long long b = 2* (long long)arr[j];
-                long long a = arr[i];
+                int  a = arr[i];
                 if( (i<j) && (a > b)){
                     cnt++;
                 }
