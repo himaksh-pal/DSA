@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int search(vector<int> &arr, int target){
+int searchMO(vector<int> &arr, int target){ //optimal MY
     int n = arr.size();
     int beg =0;
     int end = n-1;
@@ -21,7 +21,7 @@ int search(vector<int> &arr, int target){
 int main(){
     vector<int> arr ={-1,0,3,5,9,12};
     int target = -1;
-    int res = search(arr,target);
+    int res = searchMO(arr,target);
     cout<<"Index : "<<res;
     return 0;
 }
