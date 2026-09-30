@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int upperBound(vector<int> &arr, int x){
-        int n = -1;
-
+        int n = arr.size();
         int beg = 0;
         int end = arr.size()-1;
         while(beg<=end){
@@ -15,7 +14,6 @@ int upperBound(vector<int> &arr, int x){
                 beg= mid+1;
             }
         }
-        if(n==-1) return arr.size();
         return n;
     }
 
