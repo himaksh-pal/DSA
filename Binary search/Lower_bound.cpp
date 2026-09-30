@@ -7,7 +7,7 @@ int lowerBound(vector<int> &arr, int x){
         while(beg<=end){
             int mid = (beg+end)/2;
             if(arr[mid]>=x){
-                n=min(n,mid);
+                n=mid;
                 end=n-1;
             }
             else{
