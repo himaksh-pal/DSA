@@ -247,11 +247,12 @@ void pattern23(int n){
 
 int main(){
     int t;
+
     cin>>t;
     int n1;
     for(int i=0;i<t;i++){
         cin>>n1;
-        pattern23(n1);
+        pattern20(n1);
     }
 
     return 0;
