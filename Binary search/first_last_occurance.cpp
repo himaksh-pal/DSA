@@ -32,12 +32,48 @@ int upperBound(vector<int> &arr, int x){
         }
         return n;
     }
-vector<int> searchRange(vector<int>& arr, int target) {
+vector<int> searchRangeLU(vector<int>& arr, int target) { // with lower and upper bound
         int n = arr.size();
         int lb = lowerBound(arr,target);
         if((lb == n) || (arr[lb] != target)) return {-1,-1};
         return {lb,(upperBound(arr,target)-1)};
     }
+int firstOccurance(vector<int> & arr,int x){
+    int n = arr.size();
+    int low=0,high = n-1;
+    int first=-1;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid]==x){
+            first=mid;
+            high=mid-1;
+        }
+        else if(arr[mid]<x) low=mid+1;
+        else high = mid-1;
+    }
+    return first;
+}
+int lastOccurance(vector<int> & arr,int x){
+    int n = arr.size();
+    int low=0,high = n-1;
+    int last=-1;
+    while(low<=high){
+        int mid = (low+high)/2;
+        if(arr[mid]==x){
+            last=mid;
+            low=mid+1;
+        }
+        else if(arr[mid]<x) low=mid+1;
+        else high = mid-1;
+    }
+    return last;
+}
+vector<int> searchRange(vector<int>& arr, int x) { // with normal binary search
+    int first = firstOccurance(arr,x);
+    if(first==-1) return {-1,-1};
+    int last = lastOccurance(arr,x);
+    return {first,last};
+}
 int main(){
     vector<int> arr ={5,7,7,8,8,10};
     int target = 8;
