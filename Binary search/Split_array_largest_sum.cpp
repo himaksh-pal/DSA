@@ -26,7 +26,7 @@ int check(vector<int> & arr , int i ){
     //     return -1;
     // }
 
-int splitArray(vector<int>& arr, int k){
+int splitArray(vector<int>& arr, int k){            // binary search my
     int n = arr.size();
     int low=*max_element(arr.begin(),arr.end());
     int sum =0;
