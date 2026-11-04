@@ -66,10 +66,76 @@ ListNode *deleteTail(ListNode *head) {
     return head;
 
     }
+
+ListNode *deleteKthElement(ListNode *&head, int k) {
+        ListNode* temp = head;
+        int cnt  = 0;
+        while (temp)
+        {
+            cnt++;
+            if(cnt==k) break;
+            temp=temp->next;
+
+        }
+        ListNode* back = temp->prev;
+        ListNode* front = temp->next;
+
+        if(front==NULL && back==NULL){
+            free(temp);
+            return NULL;
+        }
+        else if(back==NULL){
+            ListNode* n = head;
+            head=head->next;
+            head->prev=nullptr;
+            n->next=nullptr;
+            free(n);
+            return head;
+        }
+        else if(front==NULL){
+            ListNode* n = head;
+            while(n->next != NULL){
+                n=n->next;
+            }
+            n->prev->next=nullptr;
+            n->prev=nullptr;
+            free(n);
+            return head;
+        }
+
+        back->next=front;
+        front->prev=back;
+        temp->next=nullptr;
+        temp->prev= nullptr;
+        free(temp);
+        return head;
+        
+    }
+
+void deleteGivenNode(ListNode *node) {
+        ListNode* temp= node;
+        ListNode* back = temp->prev;
+        ListNode* front = temp->next;
+        if(front==nullptr){ 
+            back->next=nullptr;
+            temp->prev=nullptr;
+            free(temp);
+        
+            
+        }
+        else{
+            back->next=front;
+            front->prev=back;
+            temp->next=nullptr;
+            temp->prev= nullptr;
+            free(temp);
+        }
+        
+    }
 int main(){
-    vector<int> arr={1,2,3,4};
+    vector<int> arr={1,2};
     ListNode* head = ConvertARRtoDLL(arr);
-    ListNode* newhead = deleteTail(head);
+    ListNode* newhead = deleteKthElement(head,2);
     print(newhead);
     return 0;
 }
