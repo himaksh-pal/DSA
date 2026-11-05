@@ -45,10 +45,57 @@ ListNode* insertBeforeHead(ListNode* head, int X) {
         head->prev= newHead;
         return newHead;
     }
+    ListNode* insertBeforeTail(ListNode* head, int X) {
+        ListNode* temp = head;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        ListNode* back = temp->prev;
+        ListNode* newNode = new ListNode(X,temp,back);
+        if(back==NULL){
+            temp->prev=newNode;
+            return newNode;
+        }
+        back->next=newNode;
+        temp->prev=newNode;
+        return head;
+        
+    }
+
+ListNode* insertBeforeKthPosition(ListNode* head, int X, int K) {
+        if(K==1){
+            ListNode* newHead = new ListNode(X,head,nullptr);
+            head->prev= newHead;
+            return newHead;
+        }
+        ListNode* temp = head;
+        int cnt=0;
+        while (temp != NULL)
+        {
+            cnt++;
+            if(cnt==K) break;
+            temp = temp->next;
+        }
+        ListNode* back = temp->prev;
+        ListNode* newNode = new ListNode(X,temp,back);
+        back->next=newNode;
+        temp->prev=newNode;
+        return head;
+
+    }
+
+void insertBeforeGivenNode(ListNode* node, int X) {
+        ListNode* back = node->prev;
+        ListNode* newNode = new ListNode(X,node,back);
+        back->next=newNode;
+        node->prev=newNode;
+
+    }
 int main(){
-    vector<int> arr={1,2};
+    vector<int> arr={1,2,6};
     ListNode* head = ConvertARRtoDLL(arr);
-    ListNode* newhead = insertBeforeHead(head,20);
-    print(newhead);
+    insertBeforeGivenNode(head->next->next,100);
+    print(head);
     return 0;
 }
