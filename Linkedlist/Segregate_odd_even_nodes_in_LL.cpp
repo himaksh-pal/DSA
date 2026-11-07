@@ -42,10 +42,35 @@ void print(ListNode* head){
 }
 
 ListNode* oddEvenList(ListNode* head) {
-        
+        vector<int> arr;
+
+        if(head == NULL || head->next == NULL) return head;
+
+        ListNode* temp = head;
+        while(temp && temp->next){
+            arr.push_back(temp->data);
+            temp=temp->next->next;
+        }
+        if(temp) arr.push_back(temp->data);
+
+        temp=head->next;
+        while(temp && temp->next){
+            arr.push_back(temp->data);
+            temp=temp->next->next;
+        }
+        if(temp) arr.push_back(temp->data);
+
+        temp = head;
+        int i =0;
+        while(temp){
+            temp->data=arr[i];
+            i++;
+            temp=temp->next;
+        }
+        return head;
     }
 int main(){
-    vector<int> arr={1,2};
+    vector<int> arr={1,2,3,4};
     ListNode* head = ConvertARRtoDLL(arr);
     ListNode* newhead = oddEvenList(head);
     print(newhead);
