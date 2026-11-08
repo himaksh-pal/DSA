@@ -41,32 +41,49 @@ void print(ListNode* head){
 
 }
 
-ListNode* oddEvenList(ListNode* head) {
-        vector<int> arr;
+// ListNode* oddEvenList(ListNode* head) {                             // brute
+//         vector<int> arr;
 
+//         if(head == NULL || head->next == NULL) return head;
+
+//         ListNode* temp = head;
+//         while(temp && temp->next){
+//             arr.push_back(temp->data);
+//             temp=temp->next->next;
+//         }
+//         if(temp) arr.push_back(temp->data);
+
+//         temp=head->next;
+//         while(temp && temp->next){
+//             arr.push_back(temp->data);
+//             temp=temp->next->next;
+//         }
+//         if(temp) arr.push_back(temp->data);
+
+//         temp = head;
+//         int i =0;
+//         while(temp){
+//             temp->data=arr[i];
+//             i++;
+//             temp=temp->next;
+//         }
+//         return head;
+//     }
+
+ListNode* oddEvenList(ListNode* head) {                            //optimal
         if(head == NULL || head->next == NULL) return head;
+        ListNode* odd = head;
+        ListNode* even = head->next;
+        ListNode* evenHead = head->next;
+        while(even && even->next){
+            odd->next=odd->next->next;
+            odd=odd->next;
 
-        ListNode* temp = head;
-        while(temp && temp->next){
-            arr.push_back(temp->data);
-            temp=temp->next->next;
-        }
-        if(temp) arr.push_back(temp->data);
+            even->next=even->next->next;
+            even=even->next;
 
-        temp=head->next;
-        while(temp && temp->next){
-            arr.push_back(temp->data);
-            temp=temp->next->next;
         }
-        if(temp) arr.push_back(temp->data);
-
-        temp = head;
-        int i =0;
-        while(temp){
-            temp->data=arr[i];
-            i++;
-            temp=temp->next;
-        }
+        odd->next=evenHead;
         return head;
     }
 int main(){
