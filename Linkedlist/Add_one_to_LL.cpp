@@ -34,47 +34,60 @@ void print(ListNode* head){
         temp=temp->next;
     }
 }
-ListNode* reverseList(ListNode* head){
-        if(head== NULL || head->next==NULL) return head;
-        ListNode* newHead = reverseList(head->next);
-        ListNode* front = head->next;
-        front->next=head;
-        head->next = nullptr;
-        return newHead;
+// ListNode* reverseList(ListNode* head){
+//         if(head== NULL || head->next==NULL) return head;
+//         ListNode* newHead = reverseList(head->next);
+//         ListNode* front = head->next;
+//         front->next=head;
+//         head->next = nullptr;
+//         return newHead;
         
-    }
-ListNode* addOne(ListNode* head) {
-        ListNode* one = new ListNode(1);
-        ListNode* rev = reverseList(head);
-        ListNode* dummyNode = new ListNode(-1);
-        ListNode* t1=one;
-        ListNode* t2=rev;
-        ListNode* mover = dummyNode;
-        int carry=0;
-        while(t1 || t2){
-            int sum=carry;
-            if(t1) sum=sum+t1->data;
-            if(t2) sum=sum+t2->data;
+//     }
+// ListNode* addOne(ListNode* head) {                      // brute [iterative solution]
+//         ListNode* one = new ListNode(1);
+//         ListNode* rev = reverseList(head);
+//         ListNode* dummyNode = new ListNode(-1);
+//         ListNode* t1=one;
+//         ListNode* t2=rev;
+//         ListNode* mover = dummyNode;
+//         int carry=0;
+//         while(t1 || t2){
+//             int sum=carry;
+//             if(t1) sum=sum+t1->data;
+//             if(t2) sum=sum+t2->data;
             
-            ListNode* temp = new ListNode(sum%10);
-            carry=sum/10;
-            mover->next=temp;
-            mover=temp;
-            
-            
-            if(t1) t1=t1->next;
-            if(t2) t2=t2->next;
+//             ListNode* temp = new ListNode(sum%10);
+//             carry=sum/10;
+//             mover->next=temp;
+//             mover=temp;
             
             
-        }
-        if(carry!=0){
-               ListNode* temp = new ListNode(carry);
-               mover->next = temp;
+//             if(t1) t1=t1->next;
+//             if(t2) t2=t2->next;
+            
+            
+//         }
+//         if(carry!=0){
+//                ListNode* temp = new ListNode(carry);
+//                mover->next = temp;
                
-        }
-        return reverseList(dummyNode->next);
+//         }
+//         return reverseList(dummyNode->next);
         
-    }
+//     }
+ListNode* addOne(ListNode* head) {
+        if(head || head->next){
+            int carry =1;
+            int sum = carry+head->data;
+            head->data=(sum%10);
+            carry=
+            
+        }
+        ListNode* tail = addOne(head->next);
+
+        
+
+}
 int main(){
     vector<int> arr ={1,1,2,1};
     ListNode* head = convertARR2LL(arr);
