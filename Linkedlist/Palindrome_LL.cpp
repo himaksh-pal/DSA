@@ -34,7 +34,14 @@ void print(ListNode* head){
         temp=temp->next;
     }
 }
-
+ListNode* reverseList(ListNode* head){
+        if(head==NULL || head->next == NULL) return head;
+        ListNode* newHead= reverseList(head->next);
+        ListNode* front = head->next;
+        front->next =head;
+        head->next= nullptr;
+        return newHead;
+    }
 // bool isPalindrome(ListNode* head) {                               // brute [ stack based solution ]
 //         ListNode* temp = head;
 //         stack<int> st;
@@ -50,13 +57,32 @@ void print(ListNode* head){
 //         }
 //         return true;
         
+// }
 
 
-//     }
+    bool isPalindrome(ListNode* head) {                               // optimal
+        if(head==NULL || head->next == NULL) return head;
+        
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while(fast->next && fast->next->next){
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        ListNode* newHead=reverseList(slow->next);
+        ListNode* first= head;
+        while(newHead){
+            if(first->val != newHead->val) return false;
+            first=first->next;
+            newHead=newHead->next;
+        }
+        
+        return true;
 
-    bool isPalindrome(ListNode* head) {
+
 
     }
+    
 
 
 int main(){

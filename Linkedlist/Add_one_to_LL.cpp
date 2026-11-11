@@ -75,15 +75,22 @@ void print(ListNode* head){
 //         return reverseList(dummyNode->next);
         
 //     }
+
+int helper(ListNode* temp){
+    if(temp==NULL) return 1;
+    int carry= helper(temp->next);
+    temp->data=temp->data+carry;
+    if(temp->data<10) return 0;
+    temp->data=0;
+    return 1;
+}
 ListNode* addOne(ListNode* head) {
-        if(head || head->next){
-            int carry =1;
-            int sum = carry+head->data;
-            head->data=(sum%10);
-            carry=
-            
+        int  carry = helper(head);
+        if(carry==1){
+            ListNode* newNode= new ListNode(1,head);
+            return newNode;
         }
-        ListNode* tail = addOne(head->next);
+        return head;
 
         
 
