@@ -1,4 +1,4 @@
-// int findLengthOfLoop(ListNode *head) {
+// int findLengthOfLoop(ListNode *head) {                            //optimal [tortoise and hare]
         
 //         ListNode* slow=head;
 //         ListNode* fast=head;
@@ -16,4 +16,27 @@
 //             }
 //         }
 //         return 0;
+//     }
+
+
+
+
+
+
+// int findLengthOfLoop(ListNode *head) {                            // brute [hash map]
+        
+//         map<ListNode*, int> mpp;
+//     ListNode* temp = head;
+//     int timer=1;
+
+//     while (temp) {
+//         if (mpp.find(temp) != mpp.end()) {
+//             int value=mpp[temp];
+//             return timer-value;        
+//         }
+//         mpp[temp] = timer;
+//         timer++;          
+//         temp = temp->next;
+//     }
+//     return 0;
 //     }
